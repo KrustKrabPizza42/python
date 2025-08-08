@@ -118,19 +118,19 @@ class Test:
 
         self.tv_1.volume_up()
 
-        self.tv_1.power()
-
-        self.tv_1.volume_down()
-
-        assert self.tv_1.__str__() == f'Power = False, Channel = 0, Volume = 1'
-
-        self.tv_1.power()
-
-        self.tv_1.volume_down()
-
-        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 0'
-
         self.tv_1.volume_up()
+
+        self.tv_1.power()
+
+        self.tv_1.volume_down()
+
+        assert self.tv_1.__str__() == f'Power = False, Channel = 0, Volume = 2'
+
+        self.tv_1.power()
+
+        self.tv_1.volume_down()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 1'
 
         self.tv_1.volume_up()
 
