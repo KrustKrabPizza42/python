@@ -49,12 +49,6 @@ class Test:
 
         assert self.tv_1.__str__() == f'Power = False, Channel = 0, Volume = 1'
 
-        self.tv_1.power()
-
-        self.tv_1.volume_down()
-
-        self.tv_1.power()
-
     def test_channel_up(self):
 
         self.tv_1.channel_up()
@@ -75,4 +69,81 @@ class Test:
 
         assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 0'
 
+    def test_channel_down(self):
+
+        self.tv_1.channel_down()
+
+        assert self.tv_1.__str__() == f'Power = False, Channel = 0, Volume = 0'
+
         self.tv_1.power()
+
+        self.tv_1.channel_down()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 3, Volume = 0'
+
+        self.tv_1.channel_down()
+
+        self.tv_1.channel_down()
+
+        self.tv_1.channel_down()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 0'
+
+    def test_volume_up(self):
+
+        self.tv_1.volume_up()
+
+        assert self.tv_1.__str__() == f'Power = False, Channel = 0, Volume = 0'
+
+        self.tv_1.power()
+
+        self.tv_1.volume_up()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 1'
+
+        self.tv_1.mute()
+
+        self.tv_1.volume_up()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 2'
+
+        self.tv_1.volume_up()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 2'
+
+
+    def test_volume_down(self):
+
+        self.tv_1.power()
+
+        self.tv_1.volume_up()
+
+        self.tv_1.power()
+
+        self.tv_1.volume_down()
+
+        assert self.tv_1.__str__() == f'Power = False, Channel = 0, Volume = 1'
+
+        self.tv_1.power()
+
+        self.tv_1.volume_down()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 0'
+
+        self.tv_1.volume_up()
+
+        self.tv_1.volume_up()
+
+        self.tv_1.mute()
+
+        self.tv_1.volume_down()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 1'
+
+        self.tv_1.volume_down()
+
+        self.tv_1.volume_down()
+
+        self.tv_1.volume_down()
+
+        assert self.tv_1.__str__() == f'Power = True, Channel = 0, Volume = 0'
