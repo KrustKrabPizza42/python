@@ -1,5 +1,8 @@
 
 class Television():
+    """
+    Class to mimic a functioning tv
+    """
 
     MIN_VOLUME = 0
     MAX_VOLUME = 2
@@ -14,6 +17,9 @@ class Television():
         self.channel = self.MIN_CHANNEL
 
     def power(self):
+        """
+        Toggles power variable for tv
+        """
         
         if not self.status:
             self.status = True
@@ -22,6 +28,9 @@ class Television():
             self.status = False
 
     def mute(self):
+        """
+        Toggles mute status for tv
+        """
 
         if self.status:
 
@@ -32,6 +41,9 @@ class Television():
                 self.muted = False
 
     def channel_up(self):
+        """
+        Increments the tv's channel up and goes back to the min channel if over the max
+        """
 
         if self.status:
 
@@ -42,6 +54,9 @@ class Television():
                 self.channel = self.MIN_CHANNEL
 
     def channel_down(self):
+        """
+        Increments the tv's channel down and goes back to the max channel if under the min
+        """
 
         if self.status:
 
@@ -52,6 +67,9 @@ class Television():
                 self.channel = self.MAX_CHANNEL
 
     def volume_up(self):
+        """
+        Increments volume up, toggles mute off if on, does not increment further if at volume max
+        """
 
         if self.status:
             
@@ -62,6 +80,9 @@ class Television():
                 self.volume += 1
 
     def volume_down(self):
+        """
+        Increments the volume down,toggles mute off, does not increment further if at min volume
+        """
 
         if self.status:
 
@@ -72,6 +93,10 @@ class Television():
                 self.volume -= 1
 
     def __str__(self):
+        """
+        Get Televisions' Power, Channel, and volume
+        :return: fstring of power channel and volume
+        """
 
         if self.muted:
             return f'Power = {self.status}, Channel = {self.channel}, Volume = {self.MIN_VOLUME}'
