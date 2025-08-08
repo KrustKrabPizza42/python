@@ -1,3 +1,10 @@
+"""
+Assignment for CSCI1620-850
+
+Developed by Nicholas Cardona
+"""
+
+
 
 class Television:
     """

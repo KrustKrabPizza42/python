@@ -1,3 +1,9 @@
+"""
+Assignment for CSCI1620-850
+
+Developed by Nicholas Cardona
+"""
+
 import pytest
 from television import *
 
